@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Cydia - KhanhPC</title>
+    <link rel="icon" type="image/png" href="GD.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+        .header-text h1 {
+            color: #333;
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        .header-text p {
+            color: #666;
+            font-size: 16px;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .repo-url-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .url-box {
+            background: #f5f5f5;
+            border: 2px dashed #764ba2;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 20px;
+            text-align: center;
+            margin: 15px 0;
+            color: #333;
+            word-break: break-all;
+        }
+        .copy-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+        .copy-btn:hover {
+            transform: scale(1.02);
+        }
+        .tweaks-section {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .section-title h2 {
+            color: #333;
+            font-size: 24px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+        .tweaks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .tweak-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+        .tweak-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.2);
+            border-color: #764ba2;
+        }
+        .tweak-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            word-break: break-word;
+        }
+        .tweak-version {
+            display: inline-block;
+            background: #764ba2;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        .tweak-size {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .tweak-desc {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 18px;
+        }
+        .error {
+            text-align: center;
+            padding: 40px;
+            color: #e74c3c;
+            font-size: 18px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: white;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #764ba2;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-icon">
+                <img src="GD.png" alt="Icon" style="width: 60px; height: 60px; border-radius: 15px;" onerror="this.style.display='none'; this.parentElement.innerHTML='📦'">
+            </div>
+            <div class="header-text">
+                <h1>Kho Cydia - KhanhPC</h1>
+                <p>Kho chứa các tweak đã được sưu tầm và tự động cập nhật</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalTweaks">0</div>
+                <div class="stat-label">Tổng số tweak</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalSize">0</div>
+                <div class="stat-label">Tổng dung lượng</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="lastUpdate">Đang tải...</div>
+                <div class="stat-label">Cập nhật lần cuối</div>
+            </div>
+        </div>
+
+        <div class="repo-url-section">
+            <h2 style="margin-bottom: 10px;">📲 Thêm repo vào Cydia/Sileo/Zebra</h2>
+            <div class="url-box" id="repoUrl">https://hoangquockhanh0504.github.io/kpcjb/</div>
+            <button class="copy-btn" onclick="copyUrl()">📋 Copy URL để thêm vào Cydia</button>
+        </div>
+
+        <div class="tweaks-section">
+            <div class="section-title">
+                <h2>📦 Danh sách tweak</h2>
+                <span style="background: #764ba2; color: white; padding: 3px 10px; border-radius: 20px; font-size: 14px;" id="tweakCount">0</span>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="🔍 Tìm kiếm tweak..." onkeyup="searchTweaks()">
+            </div>
+
+            <div id="tweaksContainer" class="tweaks-grid">
+                <div class="loading">Đang tải danh sách tweak...</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Repo được tự động cập nhật bởi GitHub Actions • © 2026 KhanhPC</p>
+            <p style="font-size: 12px; margin-top: 5px;">Icon từ GD.png</p>
+        </div>
+    </div>
+
+    <script>
+        let tweaksData = [];
+
+        async function loadTweaks() {
+            try {
+                // Thử tải file Packages
+                const response = await fetch('Packages');
+                if (!response.ok) throw new Error('Không thể tải Packages');
+                
+                const text = await response.text();
+                parsePackages(text);
+                updateStats();
+                
+            } catch (error) {
+                console.error('Lỗi:', error);
+                document.getElementById('tweaksContainer').innerHTML = 
+                    '<div class="error">❌ Không thể tải danh sách tweak. Vui lòng thử lại sau.</div>';
+            }
+        }
+
+        function parsePackages(text) {
+            const packages = text.split('\n\n');
+            tweaksData = [];
+            
+            packages.forEach(pkg => {
+                if (pkg.trim().length > 0) {
+                    const tweak = {};
+                    const lines = pkg.split('\n');
+                    
+                    lines.forEach(line => {
+                        const colonIndex = line.indexOf(':');
+                        if (colonIndex > 0) {
+                            const key = line.substring(0, colonIndex).trim();
+                            const value = line.substring(colonIndex + 1).trim();
+                            tweak[key] = value;
+                        }
+                    });
+                    
+                    if (tweak.Package) {
+                        tweaksData.push(tweak);
+                    }
+                }
+            });
+            
+            displayTweaks(tweaksData);
+            document.getElementById('tweakCount').textContent = tweaksData.length;
+            document.getElementById('totalTweaks').textContent = tweaksData.length;
+        }
+
+        function displayTweaks(tweaks) {
+            const container = document.getElementById('tweaksContainer');
+            
+            if (tweaks.length === 0) {
+                container.innerHTML = '<div class="error">Không tìm thấy tweak nào</div>';
+                return;
+            }
+            
+            let totalSize = 0;
+            let html = '';
+            
+            tweaks.forEach(tweak => {
+                const name = tweak.Package || 'Unknown';
+                const version = tweak.Version || 'Unknown';
+                const size = tweak.Size ? formatSize(parseInt(tweak.Size)) : 'Unknown';
+                const desc = tweak.Description || 'Không có mô tả';
+                const author = tweak.Author || 'Unknown';
+                
+                if (tweak.Size) totalSize += parseInt(tweak.Size);
+                
+                html += `
+                    <div class="tweak-card">
+                        <div class="tweak-name">${name}</div>
+                        <div>
+                            <span class="tweak-version">v${version}</span>
+                            <span class="tweak-size">${size}</span>
+                        </div>
+                        <div class="tweak-desc">${desc.substring(0, 100)}${desc.length > 100 ? '...' : ''}</div>
+                        <div style="font-size: 11px; color: #999; margin-top: 8px;">👤 ${author}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Tính tổng dung lượng
+            document.getElementById('totalSize').textContent = formatSize(totalSize);
+            
+            // Cập nhật thời gian
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('vi-VN');
+        }
+
+        function formatSize(bytes) {
+            if (bytes === 0) return '0 B';
+            const k = 1024;
+            const sizes = ['B', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function searchTweaks() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            if (searchTerm === '') {
+                displayTweaks(tweaksData);
+                return;
+            }
+            
+            const filtered = tweaksData.filter(tweak => 
+                (tweak.Package && tweak.Package.toLowerCase().includes(searchTerm)) ||
+                (tweak.Description && tweak.Description.toLowerCase().includes(searchTerm)) ||
+                (tweak.Author && tweak.Author.toLowerCase().includes(searchTerm))
+            );
+            
+            displayTweaks(filtered);
+            document.getElementById('tweakCount').textContent = filtered.length;
+        }
+
+        function copyUrl() {
+            const url = document.getElementById('repoUrl').innerText;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('✅ Đã copy URL: ' + url);
+            }).catch(() => {
+                alert('❌ Copy thất bại, hãy copy thủ công nhé!');
+            });
+        }
+
+        // Tải dữ liệu khi trang load
+        window.onload = loadTweaks;
+    </script>
+</body>
+</html>
