@@ -2,384 +2,674 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kho Cydia cá nhân - KhanhPC</title>
-    <!-- Icon cho tab trình duyệt -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Kho Cydia - KhanhPC</title>
     <link rel="icon" type="image/png" href="GD.png">
-    <!-- Font Awesome cho các icon đẹp -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Khai báo màu sắc cho các nền tảng -->
+    <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <style>
-        /* Reset và biến màu sắc */
+        /* Reset và biến CSS cho mọi nền tảng */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Biến màu sắc - tự động thích ứng với hệ thống */
+        :root {
+            /* Light mode */
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #334155;
+            --text-muted: #64748b;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-dark: #4f46e5;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+        }
+
+        /* Dark mode - tự động kích hoạt */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-primary: #0f0f1a;
+                --bg-secondary: #1a1a2e;
+                --bg-card: #1e1e2e;
+                --text-primary: #f1f5f9;
+                --text-secondary: #cbd5e1;
+                --text-muted: #94a3b8;
+                --accent: #818cf8;
+                --accent-light: #a5b4fc;
+                --accent-dark: #6366f1;
+                --border: #2d2d44;
+                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.5);
+                --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+            }
+        }
+
+        /* Reset cho mobile */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
         }
 
         body {
-            background: #f4f4f7;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.5;
+            transition: background-color 0.3s, color 0.3s;
             min-height: 100vh;
-            padding: 20px;
+            padding: clamp(10px, 3vw, 30px);
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
-        /* Thanh thông báo cookies */
+        /* Cookie Banner - responsive */
         .cookie-banner {
-            background: #2c3e50;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 50px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: clamp(30px, 5vw, 60px);
+            padding: clamp(12px, 2vw, 20px) clamp(16px, 3vw, 30px);
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
             flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
             gap: 15px;
-            font-size: 14px;
+            margin-bottom: clamp(15px, 3vw, 30px);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
-        .cookie-banner span i {
-            margin-right: 10px;
-            color: #f1c40f;
+
+        .cookie-banner span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+            font-size: clamp(13px, 1.5vw, 15px);
         }
+
         .cookie-banner button {
-            background: #3498db;
+            background: var(--accent);
             color: white;
             border: none;
-            padding: 8px 25px;
-            border-radius: 30px;
-            cursor: pointer;
+            padding: clamp(8px, 1.5vw, 12px) clamp(20px, 3vw, 35px);
+            border-radius: 40px;
             font-weight: 600;
-            transition: background 0.3s;
-        }
-        .cookie-banner button:hover {
-            background: #2980b9;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            font-size: clamp(13px, 1.5vw, 15px);
+            white-space: nowrap;
+            border: 1px solid transparent;
         }
 
-        /* Header với thông tin thống kê */
+        .cookie-banner button:hover {
+            opacity: 0.9;
+        }
+
+        .cookie-banner button:active {
+            transform: scale(0.98);
+        }
+
+        /* Stats Header - responsive grid */
         .stats-header {
-            background: white;
-            border-radius: 20px;
-            padding: 25px 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            border-radius: clamp(20px, 4vw, 30px);
+            padding: clamp(20px, 4vw, 35px);
+            margin-bottom: clamp(20px, 3vw, 30px);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .stats-content {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+            gap: clamp(20px, 4vw, 40px);
         }
+
         .stats-left {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: clamp(15px, 3vw, 25px);
+            flex: 1 1 auto;
         }
+
         .repo-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(145deg, #6c5ce7, #a463f5);
-            border-radius: 18px;
+            width: clamp(50px, 8vw, 80px);
+            height: clamp(50px, 8vw, 80px);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: clamp(15px, 3vw, 25px);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 35px;
+            font-size: clamp(25px, 4vw, 40px);
             color: white;
-            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+            flex-shrink: 0;
+            overflow: hidden;
         }
+
+        .repo-icon img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+        }
+
         .stats-left h1 {
-            font-size: 28px;
+            font-size: clamp(22px, 4vw, 32px);
             font-weight: 700;
-            color: #1e2a3a;
+            color: var(--text-primary);
             margin-bottom: 5px;
+            line-height: 1.2;
         }
+
+        .stats-left .badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: clamp(11px, 1.2vw, 13px);
+            margin-left: 10px;
+        }
+
         .stats-left p {
-            color: #7f8c8d;
-            font-size: 15px;
+            color: var(--text-muted);
+            font-size: clamp(13px, 1.5vw, 15px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
         }
+
         .stats-right {
             display: flex;
-            gap: 40px;
+            gap: clamp(20px, 4vw, 50px);
+            flex-wrap: wrap;
         }
+
         .stat-item {
             text-align: center;
+            min-width: 80px;
         }
+
         .stat-item .number {
-            font-size: 28px;
+            font-size: clamp(24px, 4vw, 32px);
             font-weight: 700;
-            color: #2c3e50;
+            color: var(--text-primary);
         }
+
         .stat-item .label {
-            font-size: 13px;
-            color: #95a5a6;
+            font-size: clamp(11px, 1.2vw, 13px);
+            color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        /* Phần Add Repo - Nổi bật */
+        /* Add Repo Section */
         .add-repo-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 25px;
-            padding: 30px;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: clamp(25px, 5vw, 40px);
+            padding: clamp(20px, 4vw, 35px);
+            margin-bottom: clamp(25px, 4vw, 40px);
             color: white;
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: var(--shadow-lg);
         }
+
         .add-repo-title {
-            font-size: 22px;
+            font-size: clamp(18px, 2.5vw, 24px);
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: clamp(15px, 2vw, 20px);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .add-repo-title i {
-            font-size: 28px;
-        }
+
         .repo-url-box {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-            border-radius: 60px;
-            padding: 5px 5px 5px 25px;
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: clamp(50px, 8vw, 60px);
+            padding: 5px 5px 5px clamp(15px, 3vw, 25px);
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            gap: 10px;
             margin-bottom: 20px;
         }
+
         .repo-url-text {
             font-family: monospace;
-            font-size: 18px;
-            word-break: break-word;
+            font-size: clamp(14px, 2vw, 18px);
+            word-break: break-all;
             color: white;
+            flex: 1 1 auto;
         }
+
         .copy-btn {
             background: white;
-            color: #667eea;
+            color: var(--accent-dark);
             border: none;
-            padding: 12px 30px;
+            padding: clamp(10px, 2vw, 15px) clamp(20px, 3vw, 35px);
             border-radius: 50px;
             font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s;
-            font-size: 16px;
+            transition: transform 0.2s;
+            font-size: clamp(14px, 1.8vw, 16px);
+            white-space: nowrap;
         }
-        .copy-btn:hover {
-            background: #f0f0f0;
-            transform: scale(1.02);
+
+        .copy-btn:active {
+            transform: scale(0.98);
         }
+
+        /* App Buttons Grid - Responsive */
         .app-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: clamp(8px, 1.5vw, 12px);
+            margin-top: 20px;
         }
+
         .app-btn {
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
-            padding: 12px 24px;
+            padding: clamp(10px, 2vw, 15px) clamp(12px, 2vw, 20px);
             color: white;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            flex: 1 1 auto;
-            min-width: 140px;
             justify-content: center;
+            gap: 8px;
+            font-size: clamp(13px, 1.6vw, 15px);
             backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        .app-btn i {
-            font-size: 20px;
-        }
-        .app-btn:hover {
-            background: white;
-            color: #667eea;
-            border-color: white;
-            transform: translateY(-2px);
-        }
-        .app-btn.cydia { background: rgba(255,255,255,0.2); }
-        .app-btn.sileo { background: rgba(255,255,255,0.2); }
-        .app-btn.zebra { background: rgba(255,255,255,0.2); }
-        .app-btn.installer { background: rgba(255,255,255,0.2); }
 
-        /* Phần danh sách tweak */
-        .tweaks-container {
-            background: white;
-            border-radius: 25px;
-            padding: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        .app-btn i {
+            font-size: clamp(16px, 2vw, 20px);
         }
+
+        .app-btn:active {
+            background: white;
+            color: var(--accent-dark);
+            transform: scale(0.98);
+        }
+
+        /* Tweaks Container */
+        .tweaks-container {
+            background: var(--bg-card);
+            border-radius: clamp(25px, 5vw, 40px);
+            padding: clamp(20px, 3vw, 30px);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
         .tweaks-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
             flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
             gap: 15px;
+            margin-bottom: 25px;
         }
+
         .tweaks-header h2 {
-            font-size: 22px;
-            color: #2c3e50;
+            font-size: clamp(20px, 3vw, 24px);
+            color: var(--text-primary);
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .tweaks-header h2 i {
-            color: #667eea;
-        }
+
         .filter-section {
             display: flex;
-            gap: 15px;
-            align-items: center;
             flex-wrap: wrap;
+            gap: 10px;
+            flex: 1 1 auto;
+            justify-content: flex-end;
         }
+
         .search-box {
             position: relative;
+            flex: 1 1 250px;
+            min-width: 200px;
         }
+
         .search-box i {
             position: absolute;
             left: 15px;
             top: 50%;
             transform: translateY(-50%);
-            color: #95a5a6;
-        }
-        .search-box input {
-            padding: 12px 20px 12px 45px;
-            border: 1px solid #e0e0e0;
-            border-radius: 50px;
-            width: 280px;
+            color: var(--text-muted);
             font-size: 14px;
-            transition: all 0.3s;
+            pointer-events: none;
         }
+
+        .search-box input {
+            width: 100%;
+            padding: clamp(12px, 2vw, 15px) clamp(15px, 2vw, 20px) clamp(12px, 2vw, 15px) 45px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: clamp(14px, 1.8vw, 15px);
+            transition: border-color 0.3s;
+        }
+
         .search-box input:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: var(--accent);
         }
+
+        .search-box input::placeholder {
+            color: var(--text-muted);
+        }
+
         .category-filter {
-            padding: 12px 25px;
-            border: 1px solid #e0e0e0;
+            padding: clamp(10px, 1.8vw, 12px) clamp(15px, 2vw, 25px);
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
             border-radius: 50px;
-            background: white;
-            color: #2c3e50;
-            font-size: 14px;
+            color: var(--text-primary);
+            font-size: clamp(14px, 1.8vw, 15px);
             cursor: pointer;
+            min-width: 150px;
         }
+
+        /* Tweaks Grid - Responsive */
         .tweaks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            max-height: 700px;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+            gap: clamp(15px, 2vw, 20px);
+            max-height: 800px;
             overflow-y: auto;
-            padding: 10px 5px;
+            padding: 5px;
         }
+
         .tweak-card {
-            background: #f8fafc;
-            border-radius: 18px;
-            padding: 18px;
-            border: 1px solid #eef2f6;
-            transition: all 0.3s;
-            position: relative;
+            background: var(--bg-primary);
+            border-radius: clamp(18px, 3vw, 24px);
+            padding: clamp(15px, 2vw, 20px);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
         }
-        .tweak-card:hover {
-            transform: translateY(-3px);
-            border-color: #667eea;
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+
+        .tweak-card:active {
+            transform: scale(0.99);
         }
+
+        @media (hover: hover) {
+            .tweak-card:hover {
+                border-color: var(--accent);
+                box-shadow: var(--shadow);
+            }
+        }
+
         .tweak-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(145deg, #667eea, #764ba2);
-            border-radius: 12px;
+            width: clamp(40px, 6vw, 48px);
+            height: clamp(40px, 6vw, 48px);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: clamp(12px, 2vw, 16px);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-        .tweak-name {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1e2a3a;
-            margin-bottom: 8px;
-            word-break: break-word;
-        }
-        .tweak-meta {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .badge {
-            background: #eef2f6;
-            padding: 4px 10px;
-            border-radius: 30px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #4a5568;
-        }
-        .badge.version { background: #667eea; color: white; }
-        .badge.size { background: #48bb78; color: white; }
-        .badge.section { background: #ed8936; color: white; }
-        .tweak-desc {
-            font-size: 13px;
-            color: #718096;
-            line-height: 1.5;
+            font-size: clamp(20px, 3vw, 24px);
             margin-bottom: 15px;
         }
+
+        .tweak-name {
+            font-size: clamp(15px, 2vw, 17px);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            word-break: break-word;
+        }
+
+        .tweak-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: clamp(10px, 1.2vw, 11px);
+            font-weight: 600;
+            background: var(--bg-card);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .badge.version {
+            background: var(--accent);
+            color: white;
+            border: none;
+        }
+
+        .badge.size {
+            background: var(--success);
+            color: white;
+            border: none;
+        }
+
+        .badge.section {
+            background: var(--warning);
+            color: white;
+            border: none;
+        }
+
+        .tweak-desc {
+            font-size: clamp(12px, 1.5vw, 13px);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex: 1 1 auto;
+        }
+
         .tweak-footer {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-top: 1px solid #e2e8f0;
+            justify-content: space-between;
             padding-top: 12px;
-            margin-top: 5px;
+            border-top: 1px solid var(--border);
         }
+
         .tweak-author {
-            font-size: 12px;
-            color: #a0aec0;
+            font-size: clamp(11px, 1.3vw, 12px);
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            max-width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
-        .tweak-author i {
-            margin-right: 5px;
-            font-size: 10px;
-        }
+
         .install-hint {
             background: none;
             border: none;
-            color: #667eea;
-            font-size: 13px;
+            color: var(--accent);
+            font-size: clamp(12px, 1.5vw, 13px);
             cursor: pointer;
-            padding: 5px 10px;
-            border-radius: 20px;
+            padding: 6px 12px;
+            border-radius: 30px;
             transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
         }
-        .install-hint:hover {
-            background: #667eea;
+
+        .install-hint:active {
+            background: var(--accent);
             color: white;
+            transform: scale(0.98);
         }
 
         /* Footer */
         .footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #95a5a6;
-            font-size: 14px;
-            border-top: 1px solid #e0e0e0;
+            margin-top: clamp(30px, 5vw, 50px);
+            padding: clamp(20px, 3vw, 30px);
+            color: var(--text-muted);
+            font-size: clamp(12px, 1.5vw, 14px);
+            border-top: 1px solid var(--border);
         }
-        .footer i {
-            color: #e74c3c;
+
+        /* Loading State */
+        .loading {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 50px;
+            color: var(--text-muted);
+        }
+
+        .loading i {
+            font-size: clamp(30px, 5vw, 40px);
+            margin-bottom: 15px;
+        }
+
+        /* Touch optimizations */
+        button, 
+        .app-btn,
+        .copy-btn,
+        .install-hint,
+        .category-filter,
+        .search-box input {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        /* Scrollbar tối ưu cho mọi nền tảng */
+        .tweaks-grid::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .tweaks-grid::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+            border-radius: 10px;
+        }
+
+        .tweaks-grid::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        .tweaks-grid {
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) var(--bg-primary);
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 640px) {
+            .stats-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .stats-right {
+                justify-content: space-around;
+            }
+            
+            .app-buttons {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .repo-url-box {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 15px;
+            }
+            
+            .copy-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-section {
+                flex-direction: column;
+            }
+            
+            .search-box,
+            .category-filter {
+                width: 100%;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .add-repo-section,
+            .cookie-banner,
+            .install-hint {
+                display: none;
+            }
+        }
+
+        /* High contrast mode */
+        @media (prefers-contrast: high) {
+            :root {
+                --accent: #0000ff;
+                --border: #000000;
+            }
+            
+            .badge {
+                border: 2px solid currentColor;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
         }
     </style>
 </head>
@@ -387,90 +677,91 @@
     <div class="container">
         <!-- Cookie Banner -->
         <div class="cookie-banner" id="cookieBanner">
-            <span><i class="fas fa-cookie-bite"></i> Trang web này sử dụng cookies để đảm bảo trải nghiệm tốt nhất cho bạn.</span>
-            <button onclick="document.getElementById('cookieBanner').style.display='none'">OK, Got it!</button>
+            <span><i class="fas fa-cookie-bite"></i> Trang web này sử dụng cookies để đảm bảo trải nghiệm tốt nhất.</span>
+            <button onclick="document.getElementById('cookieBanner').style.display='none'">Đồng ý</button>
         </div>
 
         <!-- Stats Header -->
         <div class="stats-header">
-            <div class="stats-left">
-                <div class="repo-icon">
-                    <img src="GD.png" alt="icon" style="width: 45px; height: 45px; border-radius: 12px;" onerror="this.style.display='none'; this.parentElement.innerHTML='📦'">
+            <div class="stats-content">
+                <div class="stats-left">
+                    <div class="repo-icon">
+                        <img src="GD.png" alt="icon" onerror="this.style.display='none'; this.parentElement.innerHTML='📦'">
+                    </div>
+                    <div>
+                        <h1>Kho Cydia - KhanhPC <span class="badge">Private Repo</span></h1>
+                        <p><i class="fas fa-database"></i> <span id="lastUpdateText"></span></p>
+                    </div>
                 </div>
-                <div>
-                    <h1>Kho Cydia - KhanhPC <span style="font-size: 14px; background: #eef2f6; padding: 4px 12px; border-radius: 30px; margin-left: 10px; color: #4a5568;">Private Repo</span></h1>
-                    <p><i class="fas fa-database" style="margin-right: 8px;"></i>Kho chứa các tweak đã sưu tầm, tự động cập nhật</p>
-                </div>
-            </div>
-            <div class="stats-right">
-                <div class="stat-item">
-                    <div class="number" id="totalTweaks">0</div>
-                    <div class="label">Tổng tweak</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number" id="totalSize">0 MB</div>
-                    <div class="label">Dung lượng</div>
-                </div>
-                <div class="stat-item">
-                    <div class="number" id="lastUpdate">-</div>
-                    <div class="label">Cập nhật</div>
+                <div class="stats-right">
+                    <div class="stat-item">
+                        <div class="number" id="totalTweaks">0</div>
+                        <div class="label">Tổng gói</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number" id="totalSize">0</div>
+                        <div class="label">Dung lượng</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number" id="sections">0</div>
+                        <div class="label">Danh mục</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Add Repo Section - Nổi bật với các nút cho từng App -->
+        <!-- Add Repo Section -->
         <div class="add-repo-section">
             <div class="add-repo-title">
-                <i class="fas fa-plus-circle"></i> Thêm repo này vào trình quản lý gói của bạn
+                <i class="fas fa-plus-circle"></i> Thêm repo vào trình quản lý gói
             </div>
             <div class="repo-url-box">
                 <span class="repo-url-text" id="repoUrl">https://hoangquockhanh0504.github.io/kpcjb/</span>
                 <button class="copy-btn" onclick="copyUrl()"><i class="fas fa-copy"></i> Copy URL</button>
             </div>
             <div class="app-buttons">
-                <button class="app-btn cydia" onclick="openApp('cydia://add-source?url=https://hoangquockhanh0504.github.io/kpcjb/')">
+                <button class="app-btn" onclick="openApp('cydia://add-source?url=https://hoangquockhanh0504.github.io/kpcjb/')">
                     <i class="fab fa-apple"></i> Cydia
                 </button>
-                <button class="app-btn sileo" onclick="openApp('sileo://source/https://hoangquockhanh0504.github.io/kpcjb/')">
+                <button class="app-btn" onclick="openApp('sileo://source/https://hoangquockhanh0504.github.io/kpcjb/')">
                     <i class="fas fa-leaf"></i> Sileo
                 </button>
-                <button class="app-btn zebra" onclick="openApp('zebra://add-source/https://hoangquockhanh0504.github.io/kpcjb/')">
+                <button class="app-btn" onclick="openApp('zebra://add-source/https://hoangquockhanh0504.github.io/kpcjb/')">
                     <i class="fas fa-stripes"></i> Zebra
                 </button>
-                <button class="app-btn installer" onclick="openApp('installer://add-source/https://hoangquockhanh0504.github.io/kpcjb/')">
+                <button class="app-btn" onclick="openApp('installer://add-source/https://hoangquockhanh0504.github.io/kpcjb/')">
                     <i class="fas fa-download"></i> Installer
                 </button>
             </div>
-            <p style="font-size: 13px; margin-top: 15px; opacity: 0.8;"><i class="fas fa-info-circle"></i> Bấm vào nút tương ứng để tự động mở app và thêm repo</p>
         </div>
 
-        <!-- Danh sách tweak -->
+        <!-- Tweaks List -->
         <div class="tweaks-container">
             <div class="tweaks-header">
-                <h2><i class="fas fa-cube"></i> Danh sách gói <span style="background: #667eea; color: white; padding: 3px 12px; border-radius: 30px; font-size: 14px; margin-left: 10px;" id="displayedCount">0</span></h2>
+                <h2><i class="fas fa-cubes"></i> Danh sách gói <span class="badge version" id="displayedCount">0</span></h2>
                 <div class="filter-section">
                     <div class="search-box">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="Tìm kiếm tweak..." onkeyup="searchTweaks()">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm..." oninput="searchTweaks()">
                     </div>
-                    <select class="category-filter" id="sectionFilter" onchange="filterBySection()">
-                        <option value="all">Tất cả danh mục</option>
+                    <select class="category-filter" id="sectionFilter" onchange="searchTweaks()">
+                        <option value="all">📋 Tất cả danh mục</option>
                     </select>
                 </div>
             </div>
 
             <div id="tweaksGrid" class="tweaks-grid">
-                <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #95a5a6;">
-                    <i class="fas fa-spinner fa-spin fa-3x"></i>
-                    <p style="margin-top: 20px;">Đang tải danh sách gói...</p>
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Đang tải danh sách gói...</p>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p><i class="fas fa-heart"></i> Kho được tự động cập nhật bởi GitHub Actions • Dữ liệu từ file Packages</p>
-            <p style="margin-top: 10px; font-size: 12px;">© 2026 KhanhPC • Icon từ GD.png</p>
+            <p><i class="fas fa-heart" style="color: #ef4444;"></i> Tự động cập nhật bởi GitHub Actions • Tương thích mọi thiết bị</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">© 2026 KhanhPC • Icon từ GD.png</p>
         </div>
     </div>
 
@@ -478,31 +769,49 @@
         let allTweaks = [];
         let sections = new Set();
 
-        // Hàm mở app
+        // Kiểm tra môi trường
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const isAndroid = /Android/.test(navigator.userAgent);
+        const isMobile = isIOS || isAndroid || /Mobi/.test(navigator.userAgent);
+
         function openApp(url) {
-            // Thử mở bằng URL scheme
+            // Thử mở app
             window.location.href = url;
             
-            // Fallback: Nếu không mở được, copy URL và hướng dẫn
-            setTimeout(() => {
-                if (!document.hidden) {
-                    copyUrl();
-                    alert('Nếu app không tự mở, bạn đã copy URL. Hãy dán vào app!');
-                }
-            }, 500);
+            // Fallback cho mobile
+            if (isMobile) {
+                setTimeout(() => {
+                    if (!document.hidden) {
+                        copyUrl();
+                        alert('Nếu app không tự mở, hãy copy URL và thêm thủ công nhé!');
+                    }
+                }, 1000);
+            }
         }
 
-        // Copy URL
         function copyUrl() {
             const url = document.getElementById('repoUrl').innerText;
-            navigator.clipboard.writeText(url).then(() => {
-                alert('✅ Đã copy URL: ' + url);
-            }).catch(() => {
-                alert('❌ Không thể copy, hãy copy thủ công nhé!');
-            });
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('✅ Đã copy URL: ' + url);
+                }).catch(() => {
+                    fallbackCopy();
+                });
+            } else {
+                fallbackCopy();
+            }
         }
 
-        // Load Packages
+        function fallbackCopy() {
+            const textarea = document.createElement('textarea');
+            textarea.value = document.getElementById('repoUrl').innerText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('✅ Đã copy URL (phương thức dự phòng)');
+        }
+
         async function loadTweaks() {
             try {
                 const response = await fetch('Packages');
@@ -513,10 +822,10 @@
                 
             } catch (error) {
                 document.getElementById('tweaksGrid').innerHTML = `
-                    <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #e74c3c;">
-                        <i class="fas fa-exclamation-triangle fa-3x"></i>
-                        <p style="margin-top: 20px;">Không thể tải danh sách tweak: ${error.message}</p>
-                        <p style="margin-top: 10px; font-size: 14px;">Vui lòng kiểm tra lại file Packages hoặc GitHub Actions</p>
+                    <div class="loading" style="color: var(--danger);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Không thể tải danh sách gói: ${error.message}</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Vui lòng kiểm tra lại GitHub Actions</p>
                     </div>
                 `;
             }
@@ -557,6 +866,7 @@
 
         function updateStats() {
             document.getElementById('totalTweaks').textContent = allTweaks.length;
+            document.getElementById('sections').textContent = sections.size;
             
             // Tính tổng size
             let totalBytes = 0;
@@ -567,17 +877,17 @@
             
             // Cập nhật thời gian
             const now = new Date();
-            document.getElementById('lastUpdate').textContent = `${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
+            document.getElementById('lastUpdateText').innerHTML = `Cập nhật: ${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}`;
         }
 
         function populateSections() {
             const select = document.getElementById('sectionFilter');
-            select.innerHTML = '<option value="all">Tất cả danh mục</option>';
+            select.innerHTML = '<option value="all">📋 Tất cả danh mục</option>';
             
             Array.from(sections).sort().forEach(section => {
                 const option = document.createElement('option');
                 option.value = section;
-                option.textContent = section;
+                option.textContent = `📁 ${section}`;
                 select.appendChild(option);
             });
         }
@@ -586,7 +896,7 @@
             const grid = document.getElementById('tweaksGrid');
             
             if (tweaks.length === 0) {
-                grid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 50px; color: #95a5a6;">Không tìm thấy tweak nào</div>';
+                grid.innerHTML = '<div class="loading">📭 Không tìm thấy gói nào</div>';
                 document.getElementById('displayedCount').textContent = '0';
                 return;
             }
@@ -614,7 +924,9 @@
                         <div class="tweak-desc">${desc.substring(0, 80)}${desc.length > 80 ? '...' : ''}</div>
                         <div class="tweak-footer">
                             <span class="tweak-author"><i class="fas fa-user"></i> ${author}</span>
-                            <button class="install-hint" onclick="openApp('cydia://package/${name}')"><i class="fas fa-download"></i> Cài đặt</button>
+                            <button class="install-hint" onclick="openApp('cydia://package/${name}')">
+                                <i class="fas fa-download"></i> Cài
+                            </button>
                         </div>
                     </div>
                 `;
@@ -638,12 +950,10 @@
             
             let filtered = allTweaks;
             
-            // Lọc theo section
             if (section !== 'all') {
                 filtered = filtered.filter(t => t.Section === section);
             }
             
-            // Lọc theo từ khóa
             if (term) {
                 filtered = filtered.filter(t => 
                     (t.Package && t.Package.toLowerCase().includes(term)) ||
@@ -655,12 +965,13 @@
             displayTweaks(filtered);
         }
 
-        function filterBySection() {
-            searchTweaks();
-        }
-
         // Load khi trang sẵn sàng
-        window.onload = loadTweaks;
+        window.addEventListener('load', loadTweaks);
+        
+        // Optimize cho mobile
+        if (isMobile) {
+            document.body.style.webkitTouchCallout = 'none';
+        }
     </script>
 </body>
 </html>
