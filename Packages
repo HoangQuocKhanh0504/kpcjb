@@ -1,0 +1,563 @@
+Package: applist
+Version: 1.5.16
+Architecture: iphoneos-arm
+Maintainer: Ryan Petrich <rpetrich@gmail.com>
+Installed-Size: 780
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 3.0), com.rpetrich.rocketbootstrap (>= 1.0.7~beta3) | firmware (<< 7.0)
+Conflicts: com.a3tweaks.polus (<< 2.0.7)
+Filename: ./applist_1.5.16_iphoneos-arm.deb
+Size: 105098
+MD5sum: af1bdc77dd1805c249d416fa96957841
+SHA1: 843d2b873ad29a848c701af51f2e8a524770bc3a
+SHA256: b20901679ecd9a607636dd69d1c42fe074f6a3e8a5c21c20ecef893f1a9a4a7e
+Section: System
+Description: Allow extensions to read the list of installed apps
+Author: Ryan Petrich <rpetrich@gmail.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=AppListDp
+Dev: rpetrich
+Name: AppList
+Website: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=AppListDp
+
+Package: com.blackhole.Gesto
+Version: 1.3.2
+Architecture: iphoneos-arm
+Maintainer: Gabriele Filipponi & Alessandro Chiarlitti (aesign)
+Depends: firmware (>= 11.0), mobilesubstrate, preferenceloader
+Filename: ./5dfa9a731f2f9dfdeb9a1128cf679deb.deb
+Size: 1158208
+MD5sum: 5dfa9a731f2f9dfdeb9a1128cf679deb
+SHA1: 468cd9515c4c215414a4a7871d977827f1289c12
+SHA256: 86cb989208b0b141ef52749455cba2ac684929baada053a910b33afa587d900c
+Section: System
+Priority: optional
+Homepage: https://aesign.me/gesto
+Description: Gesto enhances iOS's multitasking view, making it powerful yet familiar, with a native-looking design and gorgeous animations.
+Author: gabriele filipponi
+Dev: gabriele filipponi
+Name: Gesto
+
+Package: com.creaturecoding.libcspreferences
+Version: 1.1.6
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 4712
+Depends: com.ex.libsubstitute | mobilesubstrate, firmware (>= 8.0), preferenceloader
+Filename: ./libcspreferences_1.1.6.deb
+Size: 607032
+MD5sum: 30848c67473a02990ce7721a1c805f3d
+SHA1: a9f7b346ec69c6d2bb27742eba10ae853178e66b
+SHA256: de5249c18ab7171e2a4fea1eca31fdf2b7dfb80f651a7644aeccfe4faa6d1d19
+Section: Development
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=libcspreferencesDp
+Description: A Preference Library that doesn't suck!
+Tag: purpose::extension, cydia::obsolete, compatible::ios8, compatible::ios9, compatible::ios10, compatible::ios11, compatible::ios12
+Author: CreatureSurvive <support@creaturecoding.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=libcspreferencesDp
+Dev: creaturecoding
+Name: libCSPreferences
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.creaturesurvive.libcscolorpicker
+Version: 1.0
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 502
+Depends: firmware (>= 7.0), applist
+Filename: ./libcscolorpicker_1.0.deb
+Size: 84026
+MD5sum: b211aeb172e77e51b75ddf35efb66956
+SHA1: 9aa5a286da9ceeee447aecebf56d332f3820ad8d
+SHA256: 199ced0792b798a8402b382863ea899faf8872fb9fadf99fc6610c633fde93f4
+Section: Development
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=libcscolorpickerDp
+Description: A minimal color picker library for developers
+Tag: purpose::library, cydia::obsolete, compatible::ios10, compatible::ios11, compatible::ios12
+Author: CreatureSurvive <support@creaturecoding.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=libcscolorpickerDp
+Dev: creaturecoding
+Name: libCSColorPicker
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.ichitaso.quickcc
+Version: 1.0.4
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 409
+Depends: firmware (>= 11.0), firmware (<< 13.0), mobilesubstrate, preferenceloader (>= 2.2.4~beta1)
+Filename: ./quickcc_1.0.4.deb
+Size: 56648
+MD5sum: c89ee214df018a94bf1a6b0321ab6361
+SHA1: fe556daabb508314c0f9d3278f49899a15819fc5
+SHA256: 84ad12ff8b720dd058674dbe0b2f1967091a189dddeb2191af4a62ca5b54323d
+Section: Tweaks
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=quickccDp
+Description: Expands Wifi and Bluetooth connectivity in Control Center
+Tag: purpose::extension, compatible::ios11, compatible::ios12
+Author: ichitaso <willfeeltips+qcc@gmail.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=quickccDp
+Dev: ichitaso
+Icon: file:///Library/PreferenceBundles/QuickCCSettings.bundle/icon@2x.png
+Name: QuickCC
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.imkpatil.floatingdock
+Version: 1.5
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 269
+Depends: firmware(>= 11.0), mobilesubstrate, preferenceloader, org.thebigboss.libcolorpicker
+Filename: ./floatingdock_1.5.deb
+Size: 32170
+MD5sum: dbccd8c18859b4f5c444b66f111f9c3d
+SHA1: 3079a8d274593b772a6f26f04354fdcf5512a06b
+SHA256: 12847fc1410e3eb98430877d3f7f095eafe37a2241834fbd878bd498e9ffa517
+Section: Tweaks
+Priority: optional
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=floatingdockDp
+Description: iPad like dock for iPhone!
+Tag: purpose::extension, compatible::ios11, compatible::ios12
+Author: Kiran Patil <patilkiran08@gmail.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=floatingdockDp
+Dev: imkpatil
+Icon: file:///Library/Application%20Support/FloatingDock/icon.png
+Name: FloatingDock
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.ivintagelover.solidglass
+Version: 2.1
+Architecture: iphoneos-arm
+Depends: firmware (>=1.0)
+Filename: ./com.ivintagelover.solidglass.deb
+Size: 7545484
+MD5sum: f1ee829b4fad6d85f94d26b74d63e03b
+SHA1: 13f27932d42bd8526a1df4a72b24cf105eede554
+SHA256: 2d375e35a4278a88f8bd3861e465c33dca7ee6d5939bfb623950e11008b59cd0
+Section: Themes
+Description: iOS 26 icons for older devices.
+Depiction: https://github.io/depiction/web/com.ivintagelover.solidglass.html
+Icon: https://github.io/assets/com.ivintagelover.solidglass/icon.png
+Moderndepiction: https://github.io/depiction/native/com.ivintagelover.solidglass.json
+Name: Solid Glass 2
+Sileodepiction: https://github.io/depiction/native/com.ivintagelover.solidglass.json
+Tags: compatible_min::ios1.0, compatible_max::ios17.5
+
+Package: com.jakeashacks.realcc
+Version: 1.0.2
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 102
+Depends: firmware (>= 11.0), mobilesubstrate (>= 0.9.5000)
+Filename: ./realcc_1.0.2.deb
+Size: 4186
+MD5sum: 4cd08f43cce7af370fda8e60a86e3561
+SHA1: 8f0161114800f18a38551b01b5192a10f36c85cf
+SHA256: 20bfa5de12cbf0ef2014b29a3f16f6aeb96ec1f7f5bae13988c5d7c89043b886
+Section: Tweaks
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=realccDp
+Description: Actually disable Wi-Fi from the iOS 11 CC
+Tag: purpose::extension, compatible::ios11, compatible::ios12
+Author: Jake James <jakeashacks@gmail.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=realccDp
+Dev: jakeashacks
+Name: RealCC
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.julioverne.lowerinstall
+Version: 0.0~beta6
+Architecture: iphoneos-arm
+Maintainer: Julio
+Depends: mobilesubstrate
+Filename: ./com.julioverne.lowerinstall_0.0~beta6_iphoneos-arm.deb
+Size: 94160
+MD5sum: 39a54683ff0f9fb0c2880cf393c87816
+SHA1: eafac690946057ec063f6a9d786950a9f092ea4e
+SHA256: 0b641d287e8dfbbd00948de6cf85a6b18fb4f885f6e3b98ffb627b68388cf8c1
+Section: Tweaks
+Homepage: https://twitter.com/ijulioverne
+Description: Install Apps In Lower iOS Version
+Author: julioverne
+Depiction: https://julioverne.github.io/description.html?id=com.julioverne.lowerinstall
+Name: LowerInstall
+
+Package: com.julioverne.upscale
+Version: 0.0.1
+Architecture: iphoneos-arm
+Maintainer: Julio
+Depends: mobilesubstrate
+Conflicts: com.bd452.upscale
+Filename: ./com.julioverne.upscale_0.0.1_iphoneos-arm.deb
+Size: 19968
+MD5sum: 7a7f04ab7e187da6f4c6e264b10c4da8
+SHA1: a6be3de131109df942300a71709c760ad3e26025
+SHA256: f7455ad9ead4eaee6b970706b6b110fbe483ccee4f30c3c98bf0fd1e459ea2bf
+Section: Tweaks
+Description: Change Device Resolution
+Author: bd452, julioverne
+Depiction: https://julioverne.github.io/description.html?id=com.julioverne.upscale
+Icon: file:///Library/PreferenceBundles/Upscale.bundle/icon@2x.png
+Name: Upscale
+
+Package: com.muirey03.13hud
+Version: 1.0.1
+Architecture: iphoneos-arm
+Maintainer: Muirey03
+Installed-Size: 368
+Depends: mobilesubstrate, preferenceloader, ws.hbang.common (>= 1.11)
+Conflicts: applebetas.ios.tweak.willow, es.ubikstyl.sonus12, org.fwdr.sonus, com.midkin.byebyehud, me.nepeta.flashyhud, com.lnx.aerify, com.ruler225.videohud, me.nepeta.brokenhud, com.ikilledappl3.switchhud, com.yakir.volhud
+Filename: ./com.muirey03.13hud_1.0.1.deb
+Size: 31116
+MD5sum: dc744bd029243a863550884c2798d369
+SHA1: 806ca0d9cc5d0b1ce8f0a254a1d6be8bf50c5d32
+SHA256: f225fd7ac1d69107aa342699e2fd647c518e89a304bd15359fa48c9c6dd28431
+Section: Tweaks
+Description: iOS 13 volume HUD for iOS 11/12
+Author: Muirey03
+Name: 13HUD
+
+Package: com.noisyflake.magmaevo
+Version: 2.0.10
+Architecture: iphoneos-arm
+Maintainer: NoisyFlake <support@noisyflake.com>
+Installed-Size: 2252
+Depends: mobilesubstrate, firmware (>= 12.0), preferenceloader, com.opa334.ccsupport, com.spark.libsparkcolourpicker
+Conflicts: com.noisyflake.magma, com.noisyflake.magmapro
+Filename: ./com.noisyflake.magmaevo_2.0.10_iphoneos-arm.deb
+Size: 1467622
+MD5sum: 06934fc69cf1a7098813074c9eae3e2b
+SHA1: c2979e6d5fa9196ae7af008f00752ec43b209d4f
+SHA256: aef4b8fb872a544a17b7281032a27df6161d1149ff02dad86fa15769efc72087
+Section: Tweaks
+Description: Redefine your Control Center
+Tag: cydia::commercial, compatible_min::ios12.0
+Author: NoisyFlake <support@noisyflake.com>
+Depiction: https://chariz.com/buy/magma-evo
+Icon: https://chariz.com/cdn/icon/magma-evo/icon@3x.png
+Name: Magma Evo
+
+Package: com.opa334.ccsupport
+Version: 1.3.13-2
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 423
+Depends: firmware (>= 11.0), mobilesubstrate (>= 0.9.5000)
+Conflicts: com.ioscreatix.silo
+Replaces: com.ioscreatix.silo
+Provides: com.ioscreatix.silo
+Filename: ./ccsupport_1.3.13-2.deb
+Size: 64444
+MD5sum: 53582b19fdb575fa8eae3bc0e2fabe06
+SHA1: d3eaef9c0f74556cf86cf74ffacfe65c7afd8a20
+SHA256: 6f7ea4f20890ae879e9548b1f0261b8f12b37a6575ae8685d2585ec372669198
+Section: Tweaks
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=ccsupportDp
+Description: Support tweak for CC modules!
+Tag: purpose::extension
+Author: opa334 <opa334@protonmail.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=ccsupportDp
+Dev: opa334
+Name: CCSupport
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.ps.youspeed
+Version: 1.6.2
+Architecture: iphoneos-arm
+Maintainer: PoomSmart
+Installed-Size: 92
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.ytvideooverlay (>= 2.2.0)
+Conflicts: com.lyvendia.ytspeed
+Filename: ./com.ps.youspeed_1.6.2_iphoneos-arm.deb
+Size: 12056
+MD5sum: 59311cb53cc42a05f9b855308d337897
+SHA1: 3bc0b738c2d4e81fb1f19c9f565458d40311c08e
+SHA256: 41d5a3eae417268203b787bb407d05cc0a783c4befb9c26f1cb3bb814911b3e7
+Section: Tweaks
+Description: Views/changes video speed in iOS YouTube app faster, and more speed options.
+Author: PoomSmart
+Depiction: https://poomsmart.github.io/repo/depictions/youspeed.html
+Name: YouSpeed
+Sileodepiction: https://poomsmart.github.io/repo/sileodepictions/youspeed.json
+
+Package: com.ps.ytclassicvideoquality
+Version: 1.5.2
+Architecture: iphoneos-arm64
+Maintainer: PoomSmart
+Installed-Size: 72
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0)
+Filename: ./com.ps.ytclassicvideoquality_1.5.2_iphoneos-arm64.deb
+Size: 4236
+MD5sum: 27372cda7cbdff9805977f18b2d0e04c
+SHA1: cc339b5f75a386a0c45c355f930bb2fc2eba20d7
+SHA256: 393cad2a6f7b2859ee49a3bd946c496919065b9558306370ae241c69cd715c2d
+Section: Tweaks
+Description: Reverts to the original video quality selector in YouTube app.
+Author: PoomSmart
+Depiction: https://poomsmart.github.io/repo/depictions/ytclassicvideoquality.html
+Name: YTClassicVideoQuality
+Sileodepiction: https://poomsmart.github.io/repo/sileodepictions/ytclassicvideoquality.json
+
+Package: com.ps.ytlegacy
+Version: 1.9.0
+Architecture: iphoneos-arm64
+Maintainer: PoomSmart
+Installed-Size: 2376
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0), com.ps.youspeed | firmware (>= 15.0), com.ps.ytclassicvideoquality | firmware (>= 15.0), weeb.lillie.youtubedislikesreturn (>= 1.13.9) | firmware (>= 15.0)
+Filename: ./com.ps.ytlegacy_1.9.0_iphoneos-arm64.deb
+Size: 223612
+MD5sum: ae7decd98a539a864b1002e47c25863f
+SHA1: 9642451056095a9f4c8aa64af83e4b5cf410a4d1
+SHA256: 4d81c4a2a399ec45bf8e954c6a1e26aafaa97e32efd4b615126339b1ec8c7407
+Section: Tweaks
+Description: Attempts to make old YouTube versions work again.
+Author: PoomSmart
+Depiction: https://poomsmart.github.io/repo/depictions/ytlegacy.html
+Name: YouTube Legacy
+Sileodepiction: https://poomsmart.github.io/repo/sileodepictions/ytlegacy.json
+
+Package: com.ps.ytvideooverlay
+Version: 2.3.5
+Architecture: iphoneos-arm
+Maintainer: PoomSmart
+Installed-Size: 128
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0)
+Filename: ./com.ps.ytvideooverlay_2.3.5_iphoneos-arm.deb
+Size: 16312
+MD5sum: 23e3dd7f153f1d4e90d8da2c1baada80
+SHA1: 52396294a57763e3c658649b8bf9cf8097aa2cb0
+SHA256: ca8d34f15b4f7702b254970a41ece76a38e4f3e56261bf4bac3b919de4324344
+Section: Tweaks
+Description: A helper tweak to add buttons on YouTube video overlay.
+Author: PoomSmart
+Depiction: https://poomsmart.github.io/repo/depictions/ytvideooverlay.html
+Name: YTVideoOverlay
+Sileodepiction: https://poomsmart.github.io/repo/sileodepictions/ytvideooverlay.json
+
+Package: com.rpetrich.rocketbootstrap
+Version: 1.0.10~beta1
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 596
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 3.0)
+Filename: ./com.rpetrich.rocketbootstrap_1.0.10_beta1.deb
+Size: 38344
+MD5sum: b52417e29631c59cdb267379e71e2a69
+SHA1: 5839fce38b27e624ab5629d50fd543f30b473615
+SHA256: d06e18eefbfcb40f3e3b215bfbccaf34091fb30b2ccb1e4f6c519aa91d2b7248
+Section: Tweaks
+Homepage: https://www.rpetrich.com/cydia/rocketbootstrap/beta/
+Description: Support library allowing tweaks to communicate with sandboxed processes
+Tag: purpose::extension, role::developer
+Author: Ryan Petrich <rpetrich+rocketbootstrap@gmail.com>
+Depiction: https://www.rpetrich.com/cydia/rocketbootstrap/beta/
+Dev: rpetrich
+Name: RocketBootstrap
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.spark.libsparkapplist
+Version: 1.0.10
+Architecture: iphoneos-arm
+Maintainer: Spark
+Installed-Size: 404
+Filename: ./7ea393c06401822def242bc36e4b93b3.deb
+Size: 27440
+MD5sum: 7ea393c06401822def242bc36e4b93b3
+SHA1: 1fe0728cfabddba85543fe2d4a2390f18ccedc6b
+SHA256: 4f804a14a026ff8e64c19653ea605c637dc857c996d297c982e5b2f4a68a609b
+Section: System
+Description: AppList alternative
+Tag: role::developer
+Author: Spark
+Name: libSparkAppList
+
+Package: com.spark.libsparkcolourpicker
+Version: 1.0.2
+Architecture: iphoneos-arm
+Maintainer: Spark
+Installed-Size: 424
+Filename: ./3cf4ef3a93ad7ac10ad883e92134d690.deb
+Size: 69510
+MD5sum: 3cf4ef3a93ad7ac10ad883e92134d690
+SHA1: 6870141444312965e65e73e451a65faa4efc895c
+SHA256: 693b47e2be249edd776d6efdbce56ff38067ce97b0d0402ef3d88b27cf2656fd
+Section: System
+Description: Simple to implement, simple to use colour picker library. Built by SparkDev.
+Tag: role::developer
+Author: Spark
+Name: libsparkcolourpicker
+
+Package: com.spark.snowboard
+Version: 1.4.7-Beta4
+Architecture: iphoneos-arm
+Maintainer: Spark
+Installed-Size: 4892
+Depends: mobilesubstrate, preferenceloader
+Conflicts: anemoneteam.anemone, com.anemonetheming.anemone, winterboard
+Replaces: anemoneteam.anemone, com.anemonetheming.anemone, winterboard
+Provides: anemoneteam.anemone, com.anemonetheming.anemone, winterboard
+Filename: ./30b16a9c544aea0805f55f1111b4e0aa.deb
+Size: 1565784
+MD5sum: 30b16a9c544aea0805f55f1111b4e0aa
+SHA1: 01d0c4400516bc326f76705eac28cc5bc9da859c
+SHA256: 3aa25faa61fc8939f950af1aa3b8de1f7493ee6e2837ab11fa3318a526af30b4
+Section: Tweaks
+Description: Snowboard theming engine
+Author: Spark & Dennis D. Bednarz
+Name: SnowBoard
+
+Package: com.tigisoftware.filza
+Version: 4.0.1-3
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 31815
+Depends: firmware (>= 7.0), zip, unzip, gzip, unrar, p7zip
+Conflicts: com.tigisoftware.filza64bit, com.tigisoftware.filza39
+Filename: ./filza_4.0.1-3.deb
+Size: 10215790
+MD5sum: 60322f74b0e669a35c04e3d864241e1e
+SHA1: 5f55e3c714ee9e81bad34bebb279201490014bd6
+SHA256: 4482445297cce926faede628d911bfc99ec0de5fafcea94e569dc59f6c169341
+Section: Utilities
+Priority: optional
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=filzafilemanagerDp
+Description: File Manager for iPhone, iPad, iPod Touch. Supports iOS 7+
+Tag: purpose::uikit
+Author: TIGI Software <satashi2009@gmail.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=filzafilemanagerDp
+Dev: satashi2009
+Icon: file:///Applications/Filza.app/AppIcon57x57.png
+Name: Filza File Manager
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: com.vitataf.homegesture
+Version: 2.1.4
+Architecture: iphoneos-arm
+Maintainer: MidnightChips/PINPAL
+Installed-Size: 3244
+Pre-Depends: com.spark.libsparkapplist
+Depends: firmware (>= 11.0), mobilesubstrate, preferenceloader, com.creaturecoding.libcspreferences, com.creaturesurvive.libcscolorpicker, org.thebigboss.libcolorpicker
+Filename: ./bb6b4ecfa15fa25ad8cebf7b43b129b8.deb
+Size: 2278274
+MD5sum: bb6b4ecfa15fa25ad8cebf7b43b129b8
+SHA1: 50f884cc26a28bf8e424d147d76f02773a1799f2
+SHA256: f3c9c90d82a520c7305b64e7e228946745a3f5a1ee8a70f4b1cd787971ca9ef5
+Section: Tweaks
+Description: Enable iPhone X home gesture on other devices.
+Author: VitaTaf/MidnightChips/PINPAL
+Icon: https://cdn.discordapp.com/attachments/418170831592488972/465268776091254815/icon.png
+Name: HomeGesture
+
+Package: me.conorthedev.libappearancecell
+Version: 1.0.3
+Architecture: iphoneos-arm
+Maintainer: ConorTheDev <conorthedev@gmail.com>
+Installed-Size: 204
+Filename: ./b93607aad9ae0cc41f9785fef827d784.deb
+Size: 15318
+MD5sum: b93607aad9ae0cc41f9785fef827d784
+SHA1: 17f25ecfb19fbc83edda70f92f268e0c68e3c205
+SHA256: eea75346c6de162a47deb316f20984b72cb45459be429b8a2f9db92693fd2664
+Section: System
+Description: A library for that allows developers to use an iOS 13-style appearance selector in their Preferences.
+Tag: role::developer
+Author: ConorTheDev <conorthedev@gmail.com>
+Name: libappearancecell
+
+Package: org.thebigboss.libcolorpicker
+Version: 1.6.9
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 629
+Depends: firmware (>= 6.0), mobilesubstrate (>= 0.9.5000)
+Replaces: me.nepeta.libcolorpicker, ws.hbang.alderis
+Provides: me.nepeta.libcolorpicker, ws.hbang.alderis
+Filename: ./libcolorpicker_1.6.9.deb
+Size: 110620
+MD5sum: 76ac3303a769a551ba58a83855da19f5
+SHA1: c3aa95d2302ae22fac6344d131c58d6beecbe9b7
+SHA256: 5f3a37fd6b6e65da32fc8bcfedb74f13ba7ac5876b20968f04ea66fd68d12e6b
+Section: Development
+Priority: optional
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=libcolorpickerDp
+Description: color picker library for developers
+Tag: purpose::library, role::developer, compatible::ios7, compatible::ios8, compatible::ios9, compatible::ios10, compatible::ios11, compatible::ios12, compatible::ios13, cydia::obsolete
+Author: PixelFire <pixelfiredev@helpful.io>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=libcolorpickerDp
+Dev: pixelfiredev
+Name: libcolorpicker
+Sponsor: thebigboss.org <http://thebigboss.org>
+
+Package: p7zip
+Version: 17.04
+Architecture: iphoneos-arm
+Maintainer: Hayden Seay <me@diatr.us>
+Installed-Size: 9572
+Filename: ./p7zip_17.04_iphoneos-arm.deb
+Size: 2077274
+MD5sum: 05fb143edf50b435e3621e1b289554b3
+SHA1: 6d61139162c4e5a8bfbf9b1058f4722c5c3aa062
+SHA256: d7d36f954cc41b1b7b434833ff07413089f95213fc143cee72a8293cc2efa87b
+Section: Archiving
+Priority: optional
+Multi-Arch: foreign
+Description: claims to be a good compressor
+Tag: purpose::console, role::hacker
+Name: 7-zip (POSIX)
+
+Package: preferenceloader
+Version: 2.2.6
+Architecture: iphoneos-arm
+Maintainer: BigBoss <bigboss@thebigboss.org>
+Installed-Size: 526
+Depends: mobilesubstrate
+Filename: ./preferenceloader_2.2.6.deb
+Size: 36414
+MD5sum: 551c39b9d6d58be5ad82e81a59a1715f
+SHA1: c1d547036234756c5e75a633393d4ffa791b1126
+SHA256: 335fff25ff13021889ba856ce84fbc23ba25569f1c6cc65a3e113b433b1ed60f
+Section: System
+Homepage: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=preferenceloader2Data
+Description: load preferences in style
+Tag: role::hacker, purpose::library
+Author: Sam Bingner <maintainer@sbdhi.com>
+Depiction: http://moreinfo.thebigboss.org/moreinfo/depiction.php?file=preferenceloader2Data
+Dev: dustinhowett
+Name: PreferenceLoader
+
+Package: weeb.lillie.youtubedislikesreturn
+Version: 1.13.17
+Architecture: iphoneos-arm
+Maintainer: PoomSmart and kirb <ytdislikesreturn@gmail.com>
+Installed-Size: 215
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 11.0)
+Filename: ./weeb.lillie.youtubedislikesreturn_1.13.17_iphoneos-arm.deb
+Size: 26778
+MD5sum: 9c43ef0771a09b84aaf5ab0d386207c5
+SHA1: 906f2f2cdfae337960da198bc36e21eb1b6f8711
+SHA256: 4840ebaf58b8e03b81a583a5fd95b18bf6271f52cd03d9b6f37b703407d37594
+Section: Tweaks
+Description: Brings Back Dislikes On iOS YouTube
+Tag: compatible_min::ios11.0
+Author: PoomSmart and kirb <ytdislikesreturn@gmail.com>
+Depiction: https://chariz.com/get/return-youtube-dislike
+Icon: https://img.chariz.cloud/icon/return-youtube-dislike/icon@3x.png
+Name: Return YouTube Dislike
+
+Package: ws.hbang.common
+Version: 2.0
+Architecture: iphoneos-arm64
+Maintainer: HASHBANG Productions <support@hbang.ws>
+Installed-Size: 3132
+Depends: firmware (>= 15.0)
+Filename: ./ws.hbang.common_2.0_iphoneos-arm64.deb
+Size: 198906
+MD5sum: b41babea6af14166166ac70da0d472bb
+SHA1: d7703febee3eaea3b1319d18cff7c7d59a9af2ab
+SHA256: 67338fa3f52951d5cbb900e8582e15dfff5964104bf627643bfe3901cda69652
+Section: Development
+Description: Support library for tweaks
+Tag: role::developer, compatible_min::ios15.0
+Author: HASHBANG Productions <support@hbang.ws>
+Depiction: https://chariz.com/get/cephei
+Icon: https://img.chariz.cloud/icon/cephei/icon@3x.png
+Name: Cephei Tweak Support
+Support: https://hashbang.productions/support/
+
