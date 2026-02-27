@@ -1,0 +1,39 @@
+name: Build Cydia Repo
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Generate Packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg xz-utils
+          dpkg-scanpackages -m . /dev/null > Packages
+          gzip -c Packages > Packages.gz
+          xz -c Packages > Packages.xz
+          
+      - name: Generate Release
+        run: |
+          echo "Origin: Kho Cua Khanh" > Release
+          echo "Label: Repo Khanh" >> Release
+          echo "Suite: stable" >> Release
+          echo "Version: 1.0" >> Release
+          echo "Codename: ios" >> Release
+          echo "Architectures: iphoneos-arm" >> Release
+          echo "Components: main" >> Release
+          echo "Description: Kho tweak tu dong" >> Release
+          
+      - name: Commit changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add Packages Packages.gz Packages.xz Release
+          git commit -m "Auto update repo" || exit 0
+          git push
